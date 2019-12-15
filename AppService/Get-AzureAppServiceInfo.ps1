@@ -45,7 +45,7 @@ class webAppCsv {
     [Object]${Tier}
     [Object]${Size}
     [Object]${minTlsVersion}
-    [Object]${ftpState}
+    [Object]${ftpsState}
     [Object]${netFrameworkVersion}
     [Object]${phpVersion}
     [Object]${pythonVersion}
@@ -92,7 +92,7 @@ foreach ($subscription in $subscriptions)
         $webAppObj.minTlsVersion = $config.Properties.minTlsVersion
 
         # To verify if ftpState allows ftps only - as security practice
-        $webAppObj.ftpState = $config.Properties.ftpState
+        $webAppObj.ftpsState = $config.Properties.ftpsState
 
         # To verify web app uses latest/patched version
         $webAppObj.netFrameworkVersion = $config.Properties.netFrameworkVersion
