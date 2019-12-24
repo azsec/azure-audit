@@ -4,7 +4,7 @@
     .DESCRIPTION
         This script supports cross-subscription audit. Your accunt should have enough privilege (Read access) to retrieve Microsoft.Compute resource provider.
     .NOTES
-        This script is written with Azure PowerShell Az module.
+        This script is written with Azure PowerShell Az module. The script only works with Virtual Machine. Virtual Machine Scale Set support will be added to this script soon.
 
         File Name     : Get-AzureVmInfo.ps1
         Version       : 1.0.0.0
