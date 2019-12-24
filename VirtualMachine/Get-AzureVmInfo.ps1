@@ -4,7 +4,7 @@
     .DESCRIPTION
         This script supports cross-subscription audit. Your accunt should have enough privilege (Read access) to retrieve Microsoft.Compute resource provider.
     .NOTES
-        This script is written with AzureRm PowerShell module that shall be deprecated soon. You are advised to upgrade to Azure PowerShell (Az) module.
+        This script is written with Azure PowerShell Az module.
 
         File Name     : Get-AzureVmInfo.ps1
         Version       : 1.0.0.0
@@ -31,7 +31,7 @@ Param(
     $Path
 )
 
-$subscriptions = Get-AzureRmSubscription
+$subscriptions = Get-AzSubscription
 $date = Get-Date -UFormat "%Y_%m_%d_%H%M%S"
 
 class VmCsv {
@@ -49,10 +49,10 @@ class VmCsv {
 $vmCsvReport = @()
 
 foreach ($subscription in $subscriptions) {
-    Set-AzureRmContext -SubscriptionId $subscription.id
+    Set-AzContext -SubscriptionId $subscription.id
     Write-Host -ForegroundColor Green "[!] Start checking subscription:" $subscription.Name
-    $vms = Get-AzureRmVm
-    $nics = Get-AzureRmNetworkInterface | Where-Object {$null -ne $_.VirtualMachine}
+    $vms = Get-AzVm
+    $nics = Get-AzNetworkInterface | Where-Object {$null -ne $_.VirtualMachine}
     foreach ($nic in $nics) {
         $vmObj = [vmCsv]::new()
         $vm = $vms | Where-Object { $_.id -eq $nic.VirtualMachine.id }
