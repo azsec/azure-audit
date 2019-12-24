@@ -65,10 +65,10 @@ foreach ($subscription in $subscriptions) {
         $vmObj.PrivateIp = $nic.IpConfigurations.PrivateIpAddress
         $vmObj.HostName = $vm.OSProfile.ComputerName
         
-        if($vm.OSProfile.LinuxConfiguration) {
+        if($($vm.OSProfile.LinuxConfiguration)) {
             $vmObj.Os = "Linux"
         }
-        elseif ($vm.OSProfile.WindowsConfiguration) {
+        elseif ($($vm.OSProfile.WindowsConfiguration)) {
             $vmObj.Os = "Windows"
         }
         $vmObj.OsDetail = $vm.StorageProfile.ImageReference.Offer + $vm.StorageProfile.ImageReference.Sku
