@@ -12,7 +12,7 @@
         Prerequisite  : AzureRm
     
     .EXAMPLE
-        Get-AzureVmInfo -FileName AzureVmAudit -Path C:\Audit
+        Get-AzureVmInfo.ps1 -FileName AzureVmAudit -Path C:\Audit
 #>
 
 Param(
