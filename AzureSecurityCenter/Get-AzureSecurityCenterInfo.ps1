@@ -10,6 +10,7 @@
         Version       : 1.0.0.0
         Author        : AzSec (https://azsec.azurewebsites.net/)
         Prerequisite  : Az
+        Reference     : https://azsec.azurewebsites.net/2019/12/15/audit-azure-security-center-in-your-tenant/
     .EXAMPLE
         Get-AzureSecurityCenterInfo.ps1 -FileName AscAudit -Path C:\Audit
 #>
