@@ -96,8 +96,8 @@ foreach ($subscription in $subscriptions){
 
     # Get Contact and Notification setting
     Write-Host -ForegroundColor Yellow "[-] Start getting ASC Contact and Notification Setting in subscription $($subscription.Name)"
-    $ascInfoObj.ContactEmail = (Get-AzSecurityContact).Email
-    $ascInfoObj.Phone = (Get-AzSecurityContact).Phone
+    $ascInfoObj.ContactEmail = (Get-AzSecurityContact).Email | Out-String
+    $ascInfoObj.Phone = (Get-AzSecurityContact).Phone | Out-String
     $ascInfoObj.AlertNotificationEnabled = (Get-AzSecurityContact).AlertNotifications
     $ascInfoObj.AlertToAdminsEnabled = (Get-AzSecurityContact).AlertsToAdmins
     Write-Host -ForegroundColor Yellow "[-] Finished getting ASC Contact and Notification Setting in subscription $($subscription.Name)"
