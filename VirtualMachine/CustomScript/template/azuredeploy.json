@@ -266,7 +266,7 @@
       "condition": "[equals(parameters('osPlatform'),'RedHat')]",
       "apiVersion": "2021-03-01",
       "location": "[parameters('location')]",
-      "name": "[concat(parameters('vmName'),'/CSELinux')]",
+      "name": "[concat(variables('vmName'),'/CSELinux')]",
       "dependsOn": [
         "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
       ],
