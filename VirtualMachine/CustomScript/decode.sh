@@ -8,20 +8,22 @@ agent_path='/var/lib/waagent'
 
 f=$(find $agent_path -type d -name "*.CustomScript*")
 if [ -z "$f" ];then
-  echo "[!] Can't find target dir"
+  echo "[!] Can't find target agent directory"
   exit 1
 else
   echo "[-] Find the target dir: $f"
   cd "$f" || exit
-  for setting_file in $(find "$f" -type f -name "*.settings"); do
-    if [ -z "$setting_file" ]; then
-      echo "[!] Can't find setting file"
-      exit 1
-    else
-      echo "[-] Find a setting file: $setting_file"
-      cert_thumbprint=$(jq -r '.runtimeSettings[].handlerSettings.protectedSettingsCertThumbprint' "$setting_file")
-      echo "[-] Start decoding"
-      jq -r '.runtimeSettings[].handlerSettings.protectedSettings' "$setting_file" | base64 --decode | openssl smime -inform DER -decrypt -recip ../"${cert_thumbprint}".crt -inkey ../"${cert_thumbprint}".prv | jq .
-    fi  
+  for setting_files in $(find "$f" -type f -name "*.settings"); do
+    for setting_file in $setting_files; do
+      if [ -z "$setting_file" ]; then
+        echo "[!] Can't find setting file"
+        exit 1
+      else
+        echo "[-] Find a setting file: $setting_file"
+        cert_thumbprint=$(jq -r '.runtimeSettings[].handlerSettings.protectedSettingsCertThumbprint' "$setting_file")
+        echo "[-] Start decoding"
+        jq -r '.runtimeSettings[].handlerSettings.protectedSettings' "$setting_file" | base64 --decode | openssl smime -inform DER -decrypt -recip ../"${cert_thumbprint}".crt -inkey ../"${cert_thumbprint}".prv | jq .
+      fi
+    done
   done
 fi
