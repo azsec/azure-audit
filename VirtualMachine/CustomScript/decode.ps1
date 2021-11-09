@@ -1,5 +1,6 @@
 # This script is used to decode encoded cipher used by Azure VM Agent.
 # It works with most Azure VM agent today
+# Reference: https://azsec.azurewebsites.net/2021/11/09/harvest-credential-from-custom-script-extension-on-azure-vm/
 Add-Type -AssemblyName "System.Security"
 $path = "C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\RuntimeSettings\0.settings"
 $runSettingFiles = Get-ChildItem -Path $path -Recurse -Filter "*.settings"

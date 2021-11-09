@@ -3,7 +3,7 @@
 # Custom Script extension is often used on Linux VM for AD Join or security agent installation that may have secrets.
 # Using this script you are able to decode encoded CommandToExcute object to extract plain-text secret.
 # This script can be used to decode most Azure VM extensions except VM Access Extension.
-
+# Reference: https://azsec.azurewebsites.net/2021/11/09/harvest-credential-from-custom-script-extension-on-azure-vm/
 agent_path='/var/lib/waagent'
 
 f=$(find $agent_path -type d -name "*.CustomScript*")
