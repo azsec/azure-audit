@@ -3,9 +3,9 @@
 while getopts l:s: flag
 do
     case "${flag}" in
-        e) license_key=${OPTARG};;
+        l) license_key=${OPTARG};;
         s) secret=${OPTARG};;
-        *) echo "usage: $0 [-e] [-s]" >&2
+        *) echo "usage: $0 [-l] [-s]" >&2
        exit 1 ;;
     esac
 done

@@ -1,7 +1,7 @@
 Param
 (
     [String]$License,
-    [String]$Secret,
+    [String]$Secret
 )
 
 # Do something with License and Secret

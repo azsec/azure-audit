@@ -12,7 +12,7 @@
       "value": "AzSec@1234"
     },
     "osPlatform": {
-      "value": "RedHat"
+      "value": "Windows"
     },
     "rhelOsSku": {
       "value": "7.8"
