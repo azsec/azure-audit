@@ -1,1 +1,55 @@
-{}
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "azsec-linux"
+    },
+    "adminUsername": {
+      "value": "azsec"
+    },
+    "adminPassword": {
+      "value": "AzSec@1234"
+    },
+    "osPlatform": {
+      "value": "RedHat"
+    },
+    "rhelOsSku": {
+      "value": "7.8"
+    },
+    "windowsOsSku": {
+      "value": "2019-Datacenter"
+    },
+    "subnetId": {
+      "value": "/subscriptions/67d6179d-a99d-4ccd-8c56-4d3ff2e13349/resourceGroups/azsec-workstation-rg/providers/Microsoft.Network/virtualNetworks/azsec-workstation-rg-vnet/subnets/default"
+    },
+    "secretKey": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/67d6179d-a99d-4ccd-8c56-4d3ff2e13349/resourceGroups/azsec-corporate-rg/providers/Microsoft.KeyVault/vaults/shared-corporate-kv"
+        },
+        "secretName": "secret01"
+      }
+    },
+    "licenseKey": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/67d6179d-a99d-4ccd-8c56-4d3ff2e13349/resourceGroups/azsec-corporate-rg/providers/Microsoft.KeyVault/vaults/shared-corporate-kv"
+        },
+        "secretName": "licenseKey"
+      }
+    },
+    "scriptStorageAccountContainerName": {
+      "value": "script"
+    },
+    "scriptStorageAccountName": {
+      "value": "azsecstoragedata"
+    },
+    "userManagedIdentityResourceId": {
+      "value": "/subscriptions/67d6179d-a99d-4ccd-8c56-4d3ff2e13349/resourceGroups/azsec-corporate-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/storage-user-identity"
+    },
+    "monitoringWorkspaceResourceId": {
+        "value": "/subscriptions/67d6179d-a99d-4ccd-8c56-4d3ff2e13349/resourcegroups/azsec-corporate-rg/providers/microsoft.operationalinsights/workspaces/azsec-shared-workspace"
+    }
+  }
+}
