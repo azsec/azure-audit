@@ -10,6 +10,8 @@
         Version       : 1.0.0.0
         Author        : AzSec (https://azsec.azurewebsites.net/)
         Prerequisite  : AzureRm
+
+        [Updated 11/09/2021] To get resource information you can use Resource Graph Explore. Refer to this article https://azsec.azurewebsites.net/2019/12/25/query-your-virtual-machine-with-azure-resource-graph/
     
     .EXAMPLE
         Get-AzureVmInfo.ps1 -FileName AzureVmAudit -Path C:\Audit
