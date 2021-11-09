@@ -257,7 +257,7 @@
           "managedIdentity": {
             "objectId": "[reference(parameters('userManagedIdentityResourceId'),'2015-08-31-PREVIEW').principalId]"
           },
-          "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File script.ps1 ', '-License ',  '\"', parameters('licenseKey'), '\"', '', '-secret ', parameters('secretKey'))]"
+          "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File script.ps1 ', '-License ',  '\"', parameters('licenseKey'), '\"', '', '-secret ', parameters('secretKey'), '\"')]"
         }
       }
     },
@@ -280,7 +280,7 @@
           "managedIdentity": {
             "objectId": "[reference(parameters('userManagedIdentityResourceId'),'2015-08-31-PREVIEW').principalId]"
           },
-          "commandToExecute": "[concat('sh script.sh -l ', parameters('licenseKey'), ' -s ', '\"', parameters('secretKey'))]"
+          "commandToExecute": "[concat('sh script.sh -l ', parameters('licenseKey'), ' -s ', '\"', parameters('secretKey'), '\"')]"
         }
       }
     }
