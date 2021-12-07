@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "subscriptionId": {
+      "type": "string",
+      "defaultValue": "[subscription().subscriptionId]"
+    }
+  },
+  "variables": {
+    "tagResourceId": "[concat('/subscriptions/',parameters('subscriptionId'),'/providers/Microsoft.Resources/tags/default')]"
+  },
+  "resources": [],
+  "outputs": {
+    "cloud": {
+      "type": "string",
+      "value": "[reference(variables('tagResourceId'),'2020-01-01').tags.Cloud]"
+    },
+    "year": {
+      "type": "string",
+      "value": "[reference(variables('tagResourceId'),'2020-01-01').tags.Year]"
+    },
+    "project": {
+      "type": "string",
+      "value": "[reference(variables('tagResourceId'),'2020-01-01').tags.project]"
+    }
+  }
+}
