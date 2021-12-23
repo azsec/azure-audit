@@ -10,6 +10,9 @@
     File Name     : Get-LocalGitConfiguration.ps1
     Version       : 1.0.0.0
     Author        : AzSec (https://azsec.azurewebsites.net/)
+  
+  .EXAMPLE
+    .\Get-LocalGitConfiguration.ps1 -FileName webappaudit -Path C:\Workspace 
 #>
 
 Param(
