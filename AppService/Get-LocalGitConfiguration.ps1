@@ -60,7 +60,7 @@ foreach ($subscription in $subscriptions) {
       $webAppObj.ResourceGroupName = $webApp.ResourceGroup
 
       if ($($config.Properties.phpVersion)) {
-        $webAppObj.Runtime = $config.Properties.phpVersion
+        $webAppObj.Runtime = "php" + $config.Properties.phpVersion
       }
       elseif ($($config.Properties.pythonVersion)) {
         $webAppObj.Runtime = "python" + $config.Properties.pythonVersion
