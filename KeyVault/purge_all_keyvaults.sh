@@ -19,6 +19,7 @@ for subscription_id in ${subscription_ids}; do
     echo -e "  \e[32m[+] Set subscription context succesfully\e[0m"
 
     # Get deleted vaults from the given subscription context
+    # This action requires Microsoft.KeyVault/deletedVaults/read
     vault_names=$(az keyvault list-deleted --query "[].name" -o tsv)
     if [[ ${vault_names[@]} ]]; then
       for vault_name in ${vault_names}; do
@@ -26,6 +27,7 @@ for subscription_id in ${subscription_ids}; do
         echo -e "  \e[35m[+] Start purging ${vault_name}\e[0m"
 
         # Purge deleted vault
+        # This action requires Microsoft.KeyVault/locations/deletedVaults/purge/action
         az keyvault purge --name ${vault_name}
         if [ $? -eq 0 ]; then
           echo -e "  \e[32m[+] Successfully purged key vault ${vault_name}\e[0m"
