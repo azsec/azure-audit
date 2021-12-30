@@ -40,7 +40,7 @@ header_=$(echo ${header} | tr -d '"')
 # The managed Docker container to provide remote SSH on your web app Alpine Linux v3.13
 # The following wget is used to print the response which contains Access Token.
 # You need to re-format the access token as the output in the terminal prints access token in multiple lines
-wget -qO- --header ${header_} "http://169.254.129.3:8081/msi/token?resource=https://management.azure.com&api-version=2019-08-01"
+wget -qO- --header ${header_} "${identity_endpoint}?resource=https://management.azure.com&api-version=2019-08-01"
 
 echo -e  "\e[32m[+] Copy the access token and use it separately on your workstation\e[0m"
 # Below is the sample CURL to get VM information. Change the endpoint e.g Key Vault if you would like to test
