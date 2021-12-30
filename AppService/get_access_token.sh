@@ -7,7 +7,7 @@
 echo -e "\e[32m[+] Start scanning identity on the target App Service\e[0m"
 
 # The file that store environment variables including identity_endpoint and identity_header
-# You can use printenv to print those variables. However Microsoft may harder by blocking the command.
+# You can use printenv to print those variables. However Microsoft may block the command in the future
 profile_path=/etc/profile
 
 if [ -f "${profile_path}" ]; then 
