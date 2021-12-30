@@ -6,6 +6,7 @@
 # From a cybersecurity context, an adversary may try to destruct your cloud environment by purging all key vault he deleted. 
 # The purge would make the recovery of security incident become impossible.
 # To learn more about Azure Key Vault soft-delete and purge protection https://docs.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview
+# When purge protection is enabled, key vault can only be purged after preset period.
 
 # Get all subscriptions under a logged in context
 subscription_ids=$(az account list --all --query "[].id" -o tsv)
