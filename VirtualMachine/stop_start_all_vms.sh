@@ -2,6 +2,7 @@
 # This script is written for lazy people who want to stop or start all VMs at once.
 # Use this script when you build a large lab but don't want to stop/start each VM.
 # Auto shutdown is a helpful built-in feature but you don't know when you need to stop all VMs.
+# Usage: sh stop_start_all_vms.sh xxxx-xxxxx-xxxxx-xxxx start
 
 subscription_id="$1"
 action="$2"
@@ -17,7 +18,7 @@ fi
 
 # Get VMs in the given subscription
 vm_ids=$(az vm list --query '[]'.id -o tsv)
-for vm_id in "${vm_ids[@]}"; do
+for vm_id in ${vm_ids}; do
   if [ "${action}" == "start" ]; then
     echo "[+] Your action is: ${action}"
     stop_vm_ids=$(az vm get-instance-view --ids "${vm_id}" --query "[?instanceView.statuses[1].code!='PowerState/running']".id -o tsv)
