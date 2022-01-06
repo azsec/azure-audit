@@ -1,5 +1,6 @@
 #!/bin/bash
 # Use this script to quickly audit if a VM has System-assigned Managed Identity (SAMI) enabled
+# You can actually get identity info from Resource Graph Explorer query unless you would like to practice Bash shell coding
 # Usage: sh get_sami.sh xxxx-xxxxx-xxxxx-xxxx
 
 subscription_id="$1"
